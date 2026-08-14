@@ -1,0 +1,1292 @@
+{
+  "rubar_swe_bench_seed42": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 440})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.6795454545454546, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=78.9, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.2, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=9.3, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.955, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.983, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.367, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.1, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.85, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.765, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.235, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.919, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.227, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=8.2, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rl_per_swe_bench_seed42": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 440})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.571590909090909, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=70.8, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.2, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=4.0, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.866, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.427, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.3, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.1, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.834, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.771, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.131, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.925, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.246, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.009, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=52.8, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "sdr_swe_bench_seed42": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.7068181818181818, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 440})",
+      "MetricResult(name='Skill MRR@10', value=0.7863636363636363, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.567424242424242, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.21136363636363636, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.7193181818181819, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=82.2, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.1, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=11.0, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.965, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=1.162, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.606, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.04, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.99, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.4, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.87, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.776, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.202, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.501, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.933, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.246, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.018, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=9.4, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rubar_web_arena_seed42": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 435})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.6379310344827587, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=87.8, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.1, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=6.5, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.908, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.689, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.509, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.0, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.899, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.795, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.205, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.947, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.205, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=4.5, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rl_per_web_arena_seed42": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 435})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.46551724137931033, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=90.4, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.1, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=4.4, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.869, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.463, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.31, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.0, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.825, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.788, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.139, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.94, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.143, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=17.5, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "sdr_web_arena_seed42": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.9448275862068966, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 435})",
+      "MetricResult(name='Skill MRR@10', value=0.9632183908045976, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.5777777777777788, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.23908045977011494, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.725287356321839, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=75.5, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.1, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=5.2, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.883, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.547, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.876, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.978, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=2.8, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.88, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.784, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.203, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.482, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.923, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.173, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.046, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=53.0, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rubar_swe_bench_seed123": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 416})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.7127403846153846, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=83.1, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.2, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=9.4, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.958, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.998, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.382, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.0, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.853, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.769, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.231, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.918, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.23, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=7.3, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rl_per_swe_bench_seed123": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 416})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.5757211538461539, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=78.0, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.2, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=2.7, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.853, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.282, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.959, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.287, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.4, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.829, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.764, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.126, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.912, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.188, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.01, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=55.8, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "sdr_swe_bench_seed123": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.6899038461538461, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 416})",
+      "MetricResult(name='Skill MRR@10', value=0.7724358974358974, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.5789262820512817, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.25240384615384615, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.7163461538461539, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=80.7, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.2, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=10.3, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.961, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=1.089, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.593, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.04, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.993, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.0, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.846, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.764, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.22, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.508, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.913, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.203, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.026, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=9.6, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rubar_web_arena_seed123": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 411})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.6167883211678832, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=81.9, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.0, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=6.9, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.914, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.726, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.479, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=2.7, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.861, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.775, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.225, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.926, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.158, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=13.3, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rl_per_web_arena_seed123": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 411})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.4367396593673966, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=80.2, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.1, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=2.0, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.848, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.214, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.971, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.289, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.04, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=2.7, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.837, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.769, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.124, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.92, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.164, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=22.1, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "sdr_web_arena_seed123": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.9294403892944039, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 411})",
+      "MetricResult(name='Skill MRR@10', value=0.9529602595296021, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.5673154906731557, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.22141119221411193, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.708029197080292, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=80.0, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.1, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=4.6, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.881, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.491, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.827, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.04, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.981, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.2, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.852, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.769, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.222, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.474, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.913, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.164, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.056, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=19.6, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rubar_swe_bench_seed456": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 420})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.680952380952381, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=78.9, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.2, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=9.4, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.957, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.993, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.382, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.0, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.869, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.779, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.221, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.93, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.291, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=13.1, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rl_per_swe_bench_seed456": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 420})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.5523809523809524, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=82.8, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.3, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=2.6, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.852, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.27, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.962, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.295, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.3, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.836, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.776, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.12, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.927, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.281, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.002, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=31.8, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "sdr_swe_bench_seed456": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.7309523809523809, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 420})",
+      "MetricResult(name='Skill MRR@10', value=0.7984126984126984, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.5698412698412693, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.21904761904761905, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.6857142857142857, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=65.8, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.3, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=9.7, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.959, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=1.02, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.604, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.989, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.3, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.864, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.776, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.19, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.503, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.935, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.281, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.031, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=56.5, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rubar_web_arena_seed456": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 426})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.5868544600938967, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=82.9, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.2, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=7.8, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.929, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.824, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.452, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.0, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.852, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.77, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.23, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.92, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.254, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=6.5, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rl_per_web_arena_seed456": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 426})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.44014084507042256, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=92.5, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.2, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=2.4, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.85, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.254, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.965, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.293, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.0, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.829, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.774, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.128, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.924, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.217, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=15.7, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "sdr_web_arena_seed456": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.9342723004694836, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 426})",
+      "MetricResult(name='Skill MRR@10', value=0.956181533646322, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.5688575899843514, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.215962441314554, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.795774647887324, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=59.7, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.1, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=5.8, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.893, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.61, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.933, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.04, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.981, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=4.5, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.847, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.767, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.213, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.473, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.914, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.262, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.054, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=95.3, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rubar_swe_bench_seed789": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 416})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.7067307692307693, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=83.2, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.1, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=9.4, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.957, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.99, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.381, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.0, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.853, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.77, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.23, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.924, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.148, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=5.5, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rl_per_swe_bench_seed789": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 416})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.5757211538461539, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=78.5, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.0, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=2.8, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.854, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.299, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.957, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.295, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.04, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.1, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.846, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.776, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.115, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.926, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.161, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.01, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=39.6, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "sdr_swe_bench_seed789": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.7235576923076923, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 416})",
+      "MetricResult(name='Skill MRR@10', value=0.8020833333333333, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.5817307692307688, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.22596153846153846, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.7067307692307693, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=78.3, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.0, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=11.1, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.966, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=1.168, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.612, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.991, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=2.9, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.863, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.775, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.199, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.511, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.931, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.158, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.012, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=10.5, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rubar_web_arena_seed789": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 453})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.6004415011037527, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=82.8, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.1, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=7.4, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.922, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.777, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.46, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.7, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.841, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.762, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.238, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.914, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.306, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=5.9, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rl_per_web_arena_seed789": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 453})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.434878587196468, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=91.6, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.1, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=3.3, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.859, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.351, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.289, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=4.3, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.788, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.761, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.153, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.911, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.297, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=17.2, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "sdr_web_arena_seed789": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.9271523178807947, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 453})",
+      "MetricResult(name='Skill MRR@10', value=0.9514348785871962, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.5691685062545998, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.22075055187637968, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.7130242825607064, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=77.9, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.1, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=4.4, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.878, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.467, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.828, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.985, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=5.2, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.826, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.754, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.233, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.475, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.9, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.291, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.06, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=4.6, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rubar_swe_bench_seed1024": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 422})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.7120853080568721, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=86.5, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.2, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=9.3, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.956, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.986, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.382, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.4, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.86, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.775, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.225, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.924, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.169, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=7.7, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rl_per_swe_bench_seed1024": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 422})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.5710900473933649, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=90.2, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.3, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=4.0, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.865, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.418, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.292, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.0, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.789, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.765, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.149, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.911, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.179, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.005, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=19.2, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "sdr_swe_bench_seed1024": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.7085308056872038, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 422})",
+      "MetricResult(name='Skill MRR@10', value=0.7843601895734593, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.5683254344391782, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.21800947867298578, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.7061611374407583, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=71.9, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.3, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=11.0, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.965, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=1.158, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.576, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.99, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.0, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.839, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.763, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.208, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.506, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.917, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.176, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.017, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=8.6, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rubar_web_arena_seed1024": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 457})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.5940919037199125, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=78.1, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.2, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=7.4, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.922, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.778, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.462, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.0, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.845, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.764, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.236, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.916, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.127, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=20.3, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "rl_per_web_arena_seed1024": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.0, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 457})",
+      "MetricResult(name='Skill MRR@10', value=0.0, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.0, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.0, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.43326039387308535, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=87.8, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.1, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=3.2, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.858, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.336, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.291, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.988, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.0, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.807, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.765, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.142, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.0, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.916, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.169, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.0, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=21.0, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  },
+  "sdr_web_arena_seed1024": {
+    "A": [
+      "MetricResult(name='Skill Hit@1', value=0.9234135667396062, category='A', description='Top-1 predicted skill matches ground truth', baseline_value=0.7, detail={'source': 'SkillRouter', 'n_samples': 457})",
+      "MetricResult(name='Skill MRR@10', value=0.9489423778264034, category='A', description='Reciprocal rank of first correct skill in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill Recall@10', value=0.5733041575492351, category='A', description='Fraction of ground-truth skills recovered in top-10', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill FC@10', value=0.2275711159737418, category='A', description='Top-10 contains ALL ground-truth skills (multi-skill steps)', baseline_value=None, detail={'source': 'SkillRouter'})",
+      "MetricResult(name='Skill-Conditioned Routing Accuracy', value=0.7035010940919038, category='A', description='Given correct skill, model selection is correct', baseline_value=0.8, detail={'source': 'SkillOrchestra Beta-Bernoulli'})"
+    ],
+    "B": [
+      "MetricResult(name='Cross-task Skill Transfer', value=12.0, category='B', description='Pass@1 gain from skills learned on source task applied to target', baseline_value=None, detail={'source': 'SkillOpt (+15.2 baseline)', 'unit': 'percentage_points'})",
+      "MetricResult(name='Cross-model Skill Transfer', value=78.8, category='B', description='Skill retention rate when model pool composition changes', baseline_value=None, detail={'source': 'SkillOpt (+15.2 cross-model)'})",
+      "MetricResult(name='Cross-framework Skill Transfer', value=15.0, category='B', description='Skill transfer from SWE-agent framework to OpenHands', baseline_value=None, detail={'source': 'SkillOpt (+31.8 cross-framework)'})",
+      "MetricResult(name='Skill Adaptation Speed', value=3.1, category='B', description='Average steps to reach stable skill hit rate on new task', baseline_value=None, detail={'source': 'LaMer reflective adaptation'})",
+      "MetricResult(name='Skill Exploration Quality', value=5.3, category='B', description='Active exploration score on unseen tasks', baseline_value=None, detail={'source': 'LaMer (+11-19%)'})"
+    ],
+    "C": [
+      "MetricResult(name='Skill-level Utilization Balance', value=0.89, category='C', description='How evenly models are used per skill (1.0=perfect balance)', baseline_value=0.02, detail={'source': 'SkillOrchestra'})",
+      "MetricResult(name='Routing Entropy', value=0.555, category='C', description='Shannon entropy of model selection (higher=more diverse)', baseline_value=0.1, detail={'source': 'SkillOrchestra', 'unit': 'bits'})",
+      "MetricResult(name='Routing Collapse Rate', value=0.0, category='C', description='Fraction of steps where single model > 95% of selections', baseline_value=0.98, detail={'source': 'SkillOrchestra (RL 98% collapse)'})",
+      "MetricResult(name='Skill-level Cost-Effectiveness', value=0.791, category='C', description='Average pass rate per unit token cost per skill', baseline_value=None, detail={'source': 'RL-PER + SkillOrchestra'})",
+      "MetricResult(name='Pareto Frontier Coverage', value=0.02, category='C', description='Fraction of Pareto-optimal points covered (0-1)', baseline_value=None, detail={'source': 'SkillOrchestra'})"
+    ],
+    "D": [
+      "MetricResult(name='Skill Refinement Rate', value=0.0, category='D', description='Skill splits + merges per 100 steps', baseline_value=None, detail={'source': 'SkillOrchestra + SkillOpt', 'splits': 0, 'merges': 0})",
+      "MetricResult(name='Skill Stability', value=0.984, category='D', description='1 - average variance of skill capability profiles (1.0=stable)', baseline_value=None, detail={'source': 'SkillOrchestra Beta-Bernoulli'})",
+      "MetricResult(name='Skill Coverage', value=1.0, category='D', description='Fraction of skill types with registered skills', baseline_value=0.7, detail={'source': 'SkillRouter (80K skills)'})",
+      "MetricResult(name='Skill Quality Gate Pass Rate', value=1.0, category='D', description='Fraction of new skills passing Selection Gate validation', baseline_value=None, detail={'source': 'SkillOpt Selection Gate'})",
+      "MetricResult(name='Skill Velocity', value=3.8, category='D', description='Average steps for new skill to converge (lower=faster)', baseline_value=None, detail={'source': 'SkillOpt (2-4 epoch convergence)'})"
+    ],
+    "E": [
+      "MetricResult(name='Pre-execution Skill Match', value=0.836, category='E', description='Correlation between pre-execution predictions and actual outcomes', baseline_value=None, detail={'source': 'ToolTree r_pre'})",
+      "MetricResult(name='Post-execution Skill Contribution', value=0.76, category='E', description='Average skill-level contribution score after execution', baseline_value=None, detail={'source': 'ToolTree r_post'})",
+      "MetricResult(name='Feedback Gap', value=0.226, category='E', description='Absolute difference between pre and post execution scores', baseline_value=1.0, detail={'source': 'ToolTree (ablation -7.50)'})",
+      "MetricResult(name='Skill-level Plan F1', value=0.478, category='E', description='F1 of planned skill sequence vs actual required skills', baseline_value=None, detail={'source': 'ToolTree Plan F1'})",
+      "MetricResult(name='Skill-level Exec F1', value=0.909, category='E', description='F1 of executed skill outcomes vs expected outcomes', baseline_value=None, detail={'source': 'ToolTree Exec F1'})"
+    ],
+    "F": [
+      "MetricResult(name='Skill-level Failure Attribution', value=1.0, category='F', description='Fraction of failures attributable to specific skills', baseline_value=0.0, detail={'source': 'PawBench 6-dimensional'})",
+      "MetricResult(name='Skill Discovery Failure Rate', value=0.173, category='F', description='Fraction of failures caused by weak skill discovery', baseline_value=None, detail={'source': 'PawBench (Skill_Use=47.2)'})",
+      "MetricResult(name='Skill-Model Mismatch Rate', value=0.063, category='F', description=\"Failures where skill requirements didn't match model capabilities\", baseline_value=None, detail={'source': 'PawBench'})",
+      "MetricResult(name='Harness-Skill Interaction Score', value=8.3, category='F', description='Model x harness performance variation on specific skills', baseline_value=11.5, detail={'source': 'PawBench Harness Gap'})"
+    ]
+  }
+}

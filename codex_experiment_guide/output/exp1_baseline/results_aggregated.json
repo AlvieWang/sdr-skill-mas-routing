@@ -1,0 +1,2438 @@
+{
+  "rubar_swe_bench_A_skill_hit@1": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_A_skill_mrr@10": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_A_skill_recall@10": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_A_skill_fc@10": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_A_skill_conditioned_routing_accuracy": {
+    "mean": 0.6984108594801722,
+    "std": 0.01498164682931612,
+    "min": 0.6795454545454546,
+    "max": 0.7127403846153846,
+    "values": [
+      0.6795454545454546,
+      0.7127403846153846,
+      0.680952380952381,
+      0.7067307692307693,
+      0.7120853080568721
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_B_cross_task_skill_transfer": {
+    "mean": 12.0,
+    "std": 0.0,
+    "min": 12.0,
+    "max": 12.0,
+    "values": [
+      12.0,
+      12.0,
+      12.0,
+      12.0,
+      12.0
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_B_cross_model_skill_transfer": {
+    "mean": 82.12,
+    "std": 2.899931033662695,
+    "min": 78.9,
+    "max": 86.5,
+    "values": [
+      78.9,
+      83.1,
+      78.9,
+      83.2,
+      86.5
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_B_cross_framework_skill_transfer": {
+    "mean": 15.0,
+    "std": 0.0,
+    "min": 15.0,
+    "max": 15.0,
+    "values": [
+      15.0,
+      15.0,
+      15.0,
+      15.0,
+      15.0
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_B_skill_adaptation_speed": {
+    "mean": 3.1800000000000006,
+    "std": 0.040000000000000036,
+    "min": 3.1,
+    "max": 3.2,
+    "values": [
+      3.2,
+      3.2,
+      3.2,
+      3.1,
+      3.2
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_B_skill_exploration_quality": {
+    "mean": 9.36,
+    "std": 0.04898979485566339,
+    "min": 9.3,
+    "max": 9.4,
+    "values": [
+      9.3,
+      9.4,
+      9.4,
+      9.4,
+      9.3
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_C_skill_level_utilization_balance": {
+    "mean": 0.9565999999999999,
+    "std": 0.0010198039027185578,
+    "min": 0.955,
+    "max": 0.958,
+    "values": [
+      0.955,
+      0.958,
+      0.957,
+      0.957,
+      0.956
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_C_routing_entropy": {
+    "mean": 0.9899999999999999,
+    "std": 0.005253570214625483,
+    "min": 0.983,
+    "max": 0.998,
+    "values": [
+      0.983,
+      0.998,
+      0.993,
+      0.99,
+      0.986
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_C_routing_collapse_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_C_skill_level_cost_effectiveness": {
+    "mean": 0.3788,
+    "std": 0.005912698199637798,
+    "min": 0.367,
+    "max": 0.382,
+    "values": [
+      0.367,
+      0.382,
+      0.382,
+      0.381,
+      0.382
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_C_pareto_frontier_coverage": {
+    "mean": 0.02,
+    "std": 0.0,
+    "min": 0.02,
+    "max": 0.02,
+    "values": [
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_D_skill_refinement_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_D_skill_stability": {
+    "mean": 0.9879999999999999,
+    "std": 1.1102230246251565e-16,
+    "min": 0.988,
+    "max": 0.988,
+    "values": [
+      0.988,
+      0.988,
+      0.988,
+      0.988,
+      0.988
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_D_skill_coverage": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_D_skill_quality_gate_pass_rate": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_D_skill_velocity": {
+    "mean": 3.1,
+    "std": 0.15491933384829665,
+    "min": 3.0,
+    "max": 3.4,
+    "values": [
+      3.1,
+      3.0,
+      3.0,
+      3.0,
+      3.4
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_E_pre_execution_skill_match": {
+    "mean": 0.857,
+    "std": 0.006841052550594834,
+    "min": 0.85,
+    "max": 0.869,
+    "values": [
+      0.85,
+      0.853,
+      0.869,
+      0.853,
+      0.86
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_E_post_execution_skill_contribution": {
+    "mean": 0.7716000000000001,
+    "std": 0.004882622246293485,
+    "min": 0.765,
+    "max": 0.779,
+    "values": [
+      0.765,
+      0.769,
+      0.779,
+      0.77,
+      0.775
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_E_feedback_gap": {
+    "mean": 0.2284,
+    "std": 0.004882622246293478,
+    "min": 0.221,
+    "max": 0.235,
+    "values": [
+      0.235,
+      0.231,
+      0.221,
+      0.23,
+      0.225
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_E_skill_level_plan_f1": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_E_skill_level_exec_f1": {
+    "mean": 0.923,
+    "std": 0.004289522117905447,
+    "min": 0.918,
+    "max": 0.93,
+    "values": [
+      0.919,
+      0.918,
+      0.93,
+      0.924,
+      0.924
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_F_skill_level_failure_attribution": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_F_skill_discovery_failure_rate": {
+    "mean": 0.213,
+    "std": 0.05045790324617145,
+    "min": 0.148,
+    "max": 0.291,
+    "values": [
+      0.227,
+      0.23,
+      0.291,
+      0.148,
+      0.169
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_F_skill_model_mismatch_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_swe_bench_F_harness_skill_interaction_score": {
+    "mean": 8.360000000000001,
+    "std": 2.538976171609336,
+    "min": 5.5,
+    "max": 13.1,
+    "values": [
+      8.2,
+      7.3,
+      13.1,
+      5.5,
+      7.7
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_A_skill_hit@1": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_A_skill_mrr@10": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_A_skill_recall@10": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_A_skill_fc@10": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_A_skill_conditioned_routing_accuracy": {
+    "mean": 0.5693008433115068,
+    "std": 0.008685264950995832,
+    "min": 0.5523809523809524,
+    "max": 0.5757211538461539,
+    "values": [
+      0.571590909090909,
+      0.5757211538461539,
+      0.5523809523809524,
+      0.5757211538461539,
+      0.5710900473933649
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_B_cross_task_skill_transfer": {
+    "mean": 12.0,
+    "std": 0.0,
+    "min": 12.0,
+    "max": 12.0,
+    "values": [
+      12.0,
+      12.0,
+      12.0,
+      12.0,
+      12.0
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_B_cross_model_skill_transfer": {
+    "mean": 80.06,
+    "std": 6.367919597482369,
+    "min": 70.8,
+    "max": 90.2,
+    "values": [
+      70.8,
+      78.0,
+      82.8,
+      78.5,
+      90.2
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_B_cross_framework_skill_transfer": {
+    "mean": 15.0,
+    "std": 0.0,
+    "min": 15.0,
+    "max": 15.0,
+    "values": [
+      15.0,
+      15.0,
+      15.0,
+      15.0,
+      15.0
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_B_skill_adaptation_speed": {
+    "mean": 3.2,
+    "std": 0.10954451150103316,
+    "min": 3.0,
+    "max": 3.3,
+    "values": [
+      3.2,
+      3.2,
+      3.3,
+      3.0,
+      3.3
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_B_skill_exploration_quality": {
+    "mean": 3.22,
+    "std": 0.64,
+    "min": 2.6,
+    "max": 4.0,
+    "values": [
+      4.0,
+      2.7,
+      2.6,
+      2.8,
+      4.0
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_C_skill_level_utilization_balance": {
+    "mean": 0.858,
+    "std": 0.006164414002968982,
+    "min": 0.852,
+    "max": 0.866,
+    "values": [
+      0.866,
+      0.853,
+      0.852,
+      0.854,
+      0.865
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_C_routing_entropy": {
+    "mean": 0.3392,
+    "std": 0.06869468683966759,
+    "min": 0.27,
+    "max": 0.427,
+    "values": [
+      0.427,
+      0.282,
+      0.27,
+      0.299,
+      0.418
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_C_routing_collapse_rate": {
+    "mean": 0.5755999999999999,
+    "std": 0.4699781271506154,
+    "min": 0.0,
+    "max": 0.962,
+    "values": [
+      0.0,
+      0.959,
+      0.962,
+      0.957,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_C_skill_level_cost_effectiveness": {
+    "mean": 0.29379999999999995,
+    "std": 0.004261455150532507,
+    "min": 0.287,
+    "max": 0.3,
+    "values": [
+      0.3,
+      0.287,
+      0.295,
+      0.295,
+      0.292
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_C_pareto_frontier_coverage": {
+    "mean": 0.024,
+    "std": 0.008,
+    "min": 0.02,
+    "max": 0.04,
+    "values": [
+      0.02,
+      0.02,
+      0.02,
+      0.04,
+      0.02
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_D_skill_refinement_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_D_skill_stability": {
+    "mean": 0.9879999999999999,
+    "std": 1.1102230246251565e-16,
+    "min": 0.988,
+    "max": 0.988,
+    "values": [
+      0.988,
+      0.988,
+      0.988,
+      0.988,
+      0.988
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_D_skill_coverage": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_D_skill_quality_gate_pass_rate": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_D_skill_velocity": {
+    "mean": 3.18,
+    "std": 0.14696938456699063,
+    "min": 3.0,
+    "max": 3.4,
+    "values": [
+      3.1,
+      3.4,
+      3.3,
+      3.1,
+      3.0
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_E_pre_execution_skill_match": {
+    "mean": 0.8267999999999999,
+    "std": 0.019691622584236144,
+    "min": 0.789,
+    "max": 0.846,
+    "values": [
+      0.834,
+      0.829,
+      0.836,
+      0.846,
+      0.789
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_E_post_execution_skill_contribution": {
+    "mean": 0.7704,
+    "std": 0.00516139516022558,
+    "min": 0.764,
+    "max": 0.776,
+    "values": [
+      0.771,
+      0.764,
+      0.776,
+      0.776,
+      0.765
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_E_feedback_gap": {
+    "mean": 0.1282,
+    "std": 0.011720068259186887,
+    "min": 0.115,
+    "max": 0.149,
+    "values": [
+      0.131,
+      0.126,
+      0.12,
+      0.115,
+      0.149
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_E_skill_level_plan_f1": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_E_skill_level_exec_f1": {
+    "mean": 0.9202000000000001,
+    "std": 0.007138627319029905,
+    "min": 0.911,
+    "max": 0.927,
+    "values": [
+      0.925,
+      0.912,
+      0.927,
+      0.926,
+      0.911
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_F_skill_level_failure_attribution": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_F_skill_discovery_failure_rate": {
+    "mean": 0.21100000000000002,
+    "std": 0.0451176240509183,
+    "min": 0.161,
+    "max": 0.281,
+    "values": [
+      0.246,
+      0.188,
+      0.281,
+      0.161,
+      0.179
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_F_skill_model_mismatch_rate": {
+    "mean": 0.0072,
+    "std": 0.0031874754901018458,
+    "min": 0.002,
+    "max": 0.01,
+    "values": [
+      0.009,
+      0.01,
+      0.002,
+      0.01,
+      0.005
+    ],
+    "n": 5
+  },
+  "rl_swe_bench_F_harness_skill_interaction_score": {
+    "mean": 39.839999999999996,
+    "std": 13.515857353494079,
+    "min": 19.2,
+    "max": 55.8,
+    "values": [
+      52.8,
+      55.8,
+      31.8,
+      39.6,
+      19.2
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_A_skill_hit@1": {
+    "mean": 0.711952581383861,
+    "std": 0.014282074893095445,
+    "min": 0.6899038461538461,
+    "max": 0.7309523809523809,
+    "values": [
+      0.7068181818181818,
+      0.6899038461538461,
+      0.7309523809523809,
+      0.7235576923076923,
+      0.7085308056872038
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_A_skill_mrr@10": {
+    "mean": 0.788731151023805,
+    "std": 0.010604327903559054,
+    "min": 0.7724358974358974,
+    "max": 0.8020833333333333,
+    "values": [
+      0.7863636363636363,
+      0.7724358974358974,
+      0.7984126984126984,
+      0.8020833333333333,
+      0.7843601895734593
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_A_skill_recall@10": {
+    "mean": 0.573249599597348,
+    "std": 0.005898370325081684,
+    "min": 0.567424242424242,
+    "max": 0.5817307692307688,
+    "values": [
+      0.567424242424242,
+      0.5789262820512817,
+      0.5698412698412693,
+      0.5817307692307688,
+      0.5683254344391782
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_A_skill_fc@10": {
+    "mean": 0.22535722373992514,
+    "std": 0.014293396635395689,
+    "min": 0.21136363636363636,
+    "max": 0.25240384615384615,
+    "values": [
+      0.21136363636363636,
+      0.25240384615384615,
+      0.21904761904761905,
+      0.22596153846153846,
+      0.21800947867298578
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_A_skill_conditioned_routing_accuracy": {
+    "mean": 0.7068541056100297,
+    "std": 0.011771487394633677,
+    "min": 0.6857142857142857,
+    "max": 0.7193181818181819,
+    "values": [
+      0.7193181818181819,
+      0.7163461538461539,
+      0.6857142857142857,
+      0.7067307692307693,
+      0.7061611374407583
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_B_cross_task_skill_transfer": {
+    "mean": 12.0,
+    "std": 0.0,
+    "min": 12.0,
+    "max": 12.0,
+    "values": [
+      12.0,
+      12.0,
+      12.0,
+      12.0,
+      12.0
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_B_cross_model_skill_transfer": {
+    "mean": 75.78,
+    "std": 6.1061935770167,
+    "min": 65.8,
+    "max": 82.2,
+    "values": [
+      82.2,
+      80.7,
+      65.8,
+      78.3,
+      71.9
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_B_cross_framework_skill_transfer": {
+    "mean": 15.0,
+    "std": 0.0,
+    "min": 15.0,
+    "max": 15.0,
+    "values": [
+      15.0,
+      15.0,
+      15.0,
+      15.0,
+      15.0
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_B_skill_adaptation_speed": {
+    "mean": 3.1800000000000006,
+    "std": 0.11661903789690593,
+    "min": 3.0,
+    "max": 3.3,
+    "values": [
+      3.1,
+      3.2,
+      3.3,
+      3.0,
+      3.3
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_B_skill_exploration_quality": {
+    "mean": 10.620000000000001,
+    "std": 0.5418486873657627,
+    "min": 9.7,
+    "max": 11.1,
+    "values": [
+      11.0,
+      10.3,
+      9.7,
+      11.1,
+      11.0
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_C_skill_level_utilization_balance": {
+    "mean": 0.9632,
+    "std": 0.00271293199325011,
+    "min": 0.959,
+    "max": 0.966,
+    "values": [
+      0.965,
+      0.961,
+      0.959,
+      0.966,
+      0.965
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_C_routing_entropy": {
+    "mean": 1.1194,
+    "std": 0.057395470204537884,
+    "min": 1.02,
+    "max": 1.168,
+    "values": [
+      1.162,
+      1.089,
+      1.02,
+      1.168,
+      1.158
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_C_routing_collapse_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_C_skill_level_cost_effectiveness": {
+    "mean": 0.5982000000000001,
+    "std": 0.012687001221722975,
+    "min": 0.576,
+    "max": 0.612,
+    "values": [
+      0.606,
+      0.593,
+      0.604,
+      0.612,
+      0.576
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_C_pareto_frontier_coverage": {
+    "mean": 0.028000000000000004,
+    "std": 0.009797958971132711,
+    "min": 0.02,
+    "max": 0.04,
+    "values": [
+      0.04,
+      0.04,
+      0.02,
+      0.02,
+      0.02
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_D_skill_refinement_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_D_skill_stability": {
+    "mean": 0.9906,
+    "std": 0.001356465996625055,
+    "min": 0.989,
+    "max": 0.993,
+    "values": [
+      0.99,
+      0.993,
+      0.989,
+      0.991,
+      0.99
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_D_skill_coverage": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_D_skill_quality_gate_pass_rate": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_D_skill_velocity": {
+    "mean": 3.12,
+    "std": 0.19390719429665312,
+    "min": 2.9,
+    "max": 3.4,
+    "values": [
+      3.4,
+      3.0,
+      3.3,
+      2.9,
+      3.0
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_E_pre_execution_skill_match": {
+    "mean": 0.8564,
+    "std": 0.011808471535300421,
+    "min": 0.839,
+    "max": 0.87,
+    "values": [
+      0.87,
+      0.846,
+      0.864,
+      0.863,
+      0.839
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_E_post_execution_skill_contribution": {
+    "mean": 0.7707999999999999,
+    "std": 0.0059799665550904265,
+    "min": 0.763,
+    "max": 0.776,
+    "values": [
+      0.776,
+      0.764,
+      0.776,
+      0.775,
+      0.763
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_E_feedback_gap": {
+    "mean": 0.20380000000000004,
+    "std": 0.009967948635501687,
+    "min": 0.19,
+    "max": 0.22,
+    "values": [
+      0.202,
+      0.22,
+      0.19,
+      0.199,
+      0.208
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_E_skill_level_plan_f1": {
+    "mean": 0.5058,
+    "std": 0.003544009029333873,
+    "min": 0.501,
+    "max": 0.511,
+    "values": [
+      0.501,
+      0.508,
+      0.503,
+      0.511,
+      0.506
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_E_skill_level_exec_f1": {
+    "mean": 0.9258000000000001,
+    "std": 0.008997777503361603,
+    "min": 0.913,
+    "max": 0.935,
+    "values": [
+      0.933,
+      0.913,
+      0.935,
+      0.931,
+      0.917
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_F_skill_level_failure_attribution": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_F_skill_discovery_failure_rate": {
+    "mean": 0.21280000000000002,
+    "std": 0.04518141210719294,
+    "min": 0.158,
+    "max": 0.281,
+    "values": [
+      0.246,
+      0.203,
+      0.281,
+      0.158,
+      0.176
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_F_skill_model_mismatch_rate": {
+    "mean": 0.0208,
+    "std": 0.006794115100585211,
+    "min": 0.012,
+    "max": 0.031,
+    "values": [
+      0.018,
+      0.026,
+      0.031,
+      0.012,
+      0.017
+    ],
+    "n": 5
+  },
+  "sdr_swe_bench_F_harness_skill_interaction_score": {
+    "mean": 18.919999999999998,
+    "std": 18.799723402220575,
+    "min": 8.6,
+    "max": 56.5,
+    "values": [
+      9.4,
+      9.6,
+      56.5,
+      10.5,
+      8.6
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_A_skill_hit@1": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_A_skill_mrr@10": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_A_skill_recall@10": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_A_skill_fc@10": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_A_skill_conditioned_routing_accuracy": {
+    "mean": 0.6072214441136408,
+    "std": 0.01826346392904911,
+    "min": 0.5868544600938967,
+    "max": 0.6379310344827587,
+    "values": [
+      0.6379310344827587,
+      0.6167883211678832,
+      0.5868544600938967,
+      0.6004415011037527,
+      0.5940919037199125
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_B_cross_task_skill_transfer": {
+    "mean": 12.0,
+    "std": 0.0,
+    "min": 12.0,
+    "max": 12.0,
+    "values": [
+      12.0,
+      12.0,
+      12.0,
+      12.0,
+      12.0
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_B_cross_model_skill_transfer": {
+    "mean": 82.7,
+    "std": 3.093864896856358,
+    "min": 78.1,
+    "max": 87.8,
+    "values": [
+      87.8,
+      81.9,
+      82.9,
+      82.8,
+      78.1
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_B_cross_framework_skill_transfer": {
+    "mean": 15.0,
+    "std": 0.0,
+    "min": 15.0,
+    "max": 15.0,
+    "values": [
+      15.0,
+      15.0,
+      15.0,
+      15.0,
+      15.0
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_B_skill_adaptation_speed": {
+    "mean": 3.12,
+    "std": 0.0748331477354789,
+    "min": 3.0,
+    "max": 3.2,
+    "values": [
+      3.1,
+      3.0,
+      3.2,
+      3.1,
+      3.2
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_B_skill_exploration_quality": {
+    "mean": 7.2,
+    "std": 0.45166359162544856,
+    "min": 6.5,
+    "max": 7.8,
+    "values": [
+      6.5,
+      6.9,
+      7.8,
+      7.4,
+      7.4
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_C_skill_level_utilization_balance": {
+    "mean": 0.9190000000000002,
+    "std": 0.0072663608498339865,
+    "min": 0.908,
+    "max": 0.929,
+    "values": [
+      0.908,
+      0.914,
+      0.929,
+      0.922,
+      0.922
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_C_routing_entropy": {
+    "mean": 0.7588,
+    "std": 0.04668789993135267,
+    "min": 0.689,
+    "max": 0.824,
+    "values": [
+      0.689,
+      0.726,
+      0.824,
+      0.777,
+      0.778
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_C_routing_collapse_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_C_skill_level_cost_effectiveness": {
+    "mean": 0.47240000000000004,
+    "std": 0.020303694245136766,
+    "min": 0.452,
+    "max": 0.509,
+    "values": [
+      0.509,
+      0.479,
+      0.452,
+      0.46,
+      0.462
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_C_pareto_frontier_coverage": {
+    "mean": 0.02,
+    "std": 0.0,
+    "min": 0.02,
+    "max": 0.02,
+    "values": [
+      0.02,
+      0.02,
+      0.02,
+      0.02,
+      0.02
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_D_skill_refinement_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_D_skill_stability": {
+    "mean": 0.9879999999999999,
+    "std": 1.1102230246251565e-16,
+    "min": 0.988,
+    "max": 0.988,
+    "values": [
+      0.988,
+      0.988,
+      0.988,
+      0.988,
+      0.988
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_D_skill_coverage": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_D_skill_quality_gate_pass_rate": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_D_skill_velocity": {
+    "mean": 3.0799999999999996,
+    "std": 0.33105890714493696,
+    "min": 2.7,
+    "max": 3.7,
+    "values": [
+      3.0,
+      2.7,
+      3.0,
+      3.7,
+      3.0
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_E_pre_execution_skill_match": {
+    "mean": 0.8596,
+    "std": 0.02083842604420979,
+    "min": 0.841,
+    "max": 0.899,
+    "values": [
+      0.899,
+      0.861,
+      0.852,
+      0.841,
+      0.845
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_E_post_execution_skill_contribution": {
+    "mean": 0.7731999999999999,
+    "std": 0.011822013364905331,
+    "min": 0.762,
+    "max": 0.795,
+    "values": [
+      0.795,
+      0.775,
+      0.77,
+      0.762,
+      0.764
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_E_feedback_gap": {
+    "mean": 0.22679999999999997,
+    "std": 0.01182201336490532,
+    "min": 0.205,
+    "max": 0.238,
+    "values": [
+      0.205,
+      0.225,
+      0.23,
+      0.238,
+      0.236
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_E_skill_level_plan_f1": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_E_skill_level_exec_f1": {
+    "mean": 0.9246000000000001,
+    "std": 0.011926441212700428,
+    "min": 0.914,
+    "max": 0.947,
+    "values": [
+      0.947,
+      0.926,
+      0.92,
+      0.914,
+      0.916
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_F_skill_level_failure_attribution": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_F_skill_discovery_failure_rate": {
+    "mean": 0.21000000000000002,
+    "std": 0.06445153217728807,
+    "min": 0.127,
+    "max": 0.306,
+    "values": [
+      0.205,
+      0.158,
+      0.254,
+      0.306,
+      0.127
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_F_skill_model_mismatch_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rubar_web_arena_F_harness_skill_interaction_score": {
+    "mean": 10.1,
+    "std": 5.937002610745594,
+    "min": 4.5,
+    "max": 20.3,
+    "values": [
+      4.5,
+      13.3,
+      6.5,
+      5.9,
+      20.3
+    ],
+    "n": 5
+  },
+  "rl_web_arena_A_skill_hit@1": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_web_arena_A_skill_mrr@10": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_web_arena_A_skill_recall@10": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_web_arena_A_skill_fc@10": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_web_arena_A_skill_conditioned_routing_accuracy": {
+    "mean": 0.44210734537733654,
+    "std": 0.011926658401561374,
+    "min": 0.43326039387308535,
+    "max": 0.46551724137931033,
+    "values": [
+      0.46551724137931033,
+      0.4367396593673966,
+      0.44014084507042256,
+      0.434878587196468,
+      0.43326039387308535
+    ],
+    "n": 5
+  },
+  "rl_web_arena_B_cross_task_skill_transfer": {
+    "mean": 12.0,
+    "std": 0.0,
+    "min": 12.0,
+    "max": 12.0,
+    "values": [
+      12.0,
+      12.0,
+      12.0,
+      12.0,
+      12.0
+    ],
+    "n": 5
+  },
+  "rl_web_arena_B_cross_model_skill_transfer": {
+    "mean": 88.50000000000001,
+    "std": 4.440720662234902,
+    "min": 80.2,
+    "max": 92.5,
+    "values": [
+      90.4,
+      80.2,
+      92.5,
+      91.6,
+      87.8
+    ],
+    "n": 5
+  },
+  "rl_web_arena_B_cross_framework_skill_transfer": {
+    "mean": 15.0,
+    "std": 0.0,
+    "min": 15.0,
+    "max": 15.0,
+    "values": [
+      15.0,
+      15.0,
+      15.0,
+      15.0,
+      15.0
+    ],
+    "n": 5
+  },
+  "rl_web_arena_B_skill_adaptation_speed": {
+    "mean": 3.12,
+    "std": 0.040000000000000036,
+    "min": 3.1,
+    "max": 3.2,
+    "values": [
+      3.1,
+      3.1,
+      3.2,
+      3.1,
+      3.1
+    ],
+    "n": 5
+  },
+  "rl_web_arena_B_skill_exploration_quality": {
+    "mean": 3.06,
+    "std": 0.8284926070883193,
+    "min": 2.0,
+    "max": 4.4,
+    "values": [
+      4.4,
+      2.0,
+      2.4,
+      3.3,
+      3.2
+    ],
+    "n": 5
+  },
+  "rl_web_arena_C_skill_level_utilization_balance": {
+    "mean": 0.8568,
+    "std": 0.007467261881037795,
+    "min": 0.848,
+    "max": 0.869,
+    "values": [
+      0.869,
+      0.848,
+      0.85,
+      0.859,
+      0.858
+    ],
+    "n": 5
+  },
+  "rl_web_arena_C_routing_entropy": {
+    "mean": 0.3236,
+    "std": 0.08624755068986018,
+    "min": 0.214,
+    "max": 0.463,
+    "values": [
+      0.463,
+      0.214,
+      0.254,
+      0.351,
+      0.336
+    ],
+    "n": 5
+  },
+  "rl_web_arena_C_routing_collapse_rate": {
+    "mean": 0.3872,
+    "std": 0.47422500988454835,
+    "min": 0.0,
+    "max": 0.971,
+    "values": [
+      0.0,
+      0.971,
+      0.965,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_web_arena_C_skill_level_cost_effectiveness": {
+    "mean": 0.29439999999999994,
+    "std": 0.00793977329651169,
+    "min": 0.289,
+    "max": 0.31,
+    "values": [
+      0.31,
+      0.289,
+      0.293,
+      0.289,
+      0.291
+    ],
+    "n": 5
+  },
+  "rl_web_arena_C_pareto_frontier_coverage": {
+    "mean": 0.024,
+    "std": 0.008,
+    "min": 0.02,
+    "max": 0.04,
+    "values": [
+      0.02,
+      0.04,
+      0.02,
+      0.02,
+      0.02
+    ],
+    "n": 5
+  },
+  "rl_web_arena_D_skill_refinement_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_web_arena_D_skill_stability": {
+    "mean": 0.9879999999999999,
+    "std": 1.1102230246251565e-16,
+    "min": 0.988,
+    "max": 0.988,
+    "values": [
+      0.988,
+      0.988,
+      0.988,
+      0.988,
+      0.988
+    ],
+    "n": 5
+  },
+  "rl_web_arena_D_skill_coverage": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "rl_web_arena_D_skill_quality_gate_pass_rate": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "rl_web_arena_D_skill_velocity": {
+    "mean": 3.2,
+    "std": 0.5621387729022078,
+    "min": 2.7,
+    "max": 4.3,
+    "values": [
+      3.0,
+      2.7,
+      3.0,
+      4.3,
+      3.0
+    ],
+    "n": 5
+  },
+  "rl_web_arena_E_pre_execution_skill_match": {
+    "mean": 0.8172,
+    "std": 0.017599999999999966,
+    "min": 0.788,
+    "max": 0.837,
+    "values": [
+      0.825,
+      0.837,
+      0.829,
+      0.788,
+      0.807
+    ],
+    "n": 5
+  },
+  "rl_web_arena_E_post_execution_skill_contribution": {
+    "mean": 0.7714000000000001,
+    "std": 0.009350935782048776,
+    "min": 0.761,
+    "max": 0.788,
+    "values": [
+      0.788,
+      0.769,
+      0.774,
+      0.761,
+      0.765
+    ],
+    "n": 5
+  },
+  "rl_web_arena_E_feedback_gap": {
+    "mean": 0.13720000000000002,
+    "std": 0.010342146779078314,
+    "min": 0.124,
+    "max": 0.153,
+    "values": [
+      0.139,
+      0.124,
+      0.128,
+      0.153,
+      0.142
+    ],
+    "n": 5
+  },
+  "rl_web_arena_E_skill_level_plan_f1": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_web_arena_E_skill_level_exec_f1": {
+    "mean": 0.9221999999999999,
+    "std": 0.00988736567544659,
+    "min": 0.911,
+    "max": 0.94,
+    "values": [
+      0.94,
+      0.92,
+      0.924,
+      0.911,
+      0.916
+    ],
+    "n": 5
+  },
+  "rl_web_arena_F_skill_level_failure_attribution": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "rl_web_arena_F_skill_discovery_failure_rate": {
+    "mean": 0.198,
+    "std": 0.05510716831774247,
+    "min": 0.143,
+    "max": 0.297,
+    "values": [
+      0.143,
+      0.164,
+      0.217,
+      0.297,
+      0.169
+    ],
+    "n": 5
+  },
+  "rl_web_arena_F_skill_model_mismatch_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "rl_web_arena_F_harness_skill_interaction_score": {
+    "mean": 18.7,
+    "std": 2.4306377763870954,
+    "min": 15.7,
+    "max": 22.1,
+    "values": [
+      17.5,
+      22.1,
+      15.7,
+      17.2,
+      21.0
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_A_skill_hit@1": {
+    "mean": 0.9318212321182369,
+    "std": 0.007393632295015635,
+    "min": 0.9234135667396062,
+    "max": 0.9448275862068966,
+    "values": [
+      0.9448275862068966,
+      0.9294403892944039,
+      0.9342723004694836,
+      0.9271523178807947,
+      0.9234135667396062
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_A_skill_mrr@10": {
+    "mean": 0.9545474880788243,
+    "std": 0.004929088196677234,
+    "min": 0.9489423778264034,
+    "max": 0.9632183908045976,
+    "values": [
+      0.9632183908045976,
+      0.9529602595296021,
+      0.956181533646322,
+      0.9514348785871962,
+      0.9489423778264034
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_A_skill_recall@10": {
+    "mean": 0.5712847044478242,
+    "std": 0.0038042615445783865,
+    "min": 0.5673154906731557,
+    "max": 0.5777777777777788,
+    "values": [
+      0.5777777777777788,
+      0.5673154906731557,
+      0.5688575899843514,
+      0.5691685062545998,
+      0.5733041575492351
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_A_skill_fc@10": {
+    "mean": 0.22495515222978044,
+    "std": 0.007968371800412663,
+    "min": 0.215962441314554,
+    "max": 0.23908045977011494,
+    "values": [
+      0.23908045977011494,
+      0.22141119221411193,
+      0.215962441314554,
+      0.22075055187637968,
+      0.2275711159737418
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_A_skill_conditioned_routing_accuracy": {
+    "mean": 0.7291233155884129,
+    "std": 0.034110859312520087,
+    "min": 0.7035010940919038,
+    "max": 0.795774647887324,
+    "values": [
+      0.725287356321839,
+      0.708029197080292,
+      0.795774647887324,
+      0.7130242825607064,
+      0.7035010940919038
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_B_cross_task_skill_transfer": {
+    "mean": 12.0,
+    "std": 0.0,
+    "min": 12.0,
+    "max": 12.0,
+    "values": [
+      12.0,
+      12.0,
+      12.0,
+      12.0,
+      12.0
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_B_cross_model_skill_transfer": {
+    "mean": 74.38000000000001,
+    "std": 7.486895217645295,
+    "min": 59.7,
+    "max": 80.0,
+    "values": [
+      75.5,
+      80.0,
+      59.7,
+      77.9,
+      78.8
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_B_cross_framework_skill_transfer": {
+    "mean": 15.0,
+    "std": 0.0,
+    "min": 15.0,
+    "max": 15.0,
+    "values": [
+      15.0,
+      15.0,
+      15.0,
+      15.0,
+      15.0
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_B_skill_adaptation_speed": {
+    "mean": 3.1,
+    "std": 0.0,
+    "min": 3.1,
+    "max": 3.1,
+    "values": [
+      3.1,
+      3.1,
+      3.1,
+      3.1,
+      3.1
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_B_skill_exploration_quality": {
+    "mean": 5.0600000000000005,
+    "std": 0.5043808085167396,
+    "min": 4.4,
+    "max": 5.8,
+    "values": [
+      5.2,
+      4.6,
+      5.8,
+      4.4,
+      5.3
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_C_skill_level_utilization_balance": {
+    "mean": 0.885,
+    "std": 0.005621387729022083,
+    "min": 0.878,
+    "max": 0.893,
+    "values": [
+      0.883,
+      0.881,
+      0.893,
+      0.878,
+      0.89
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_C_routing_entropy": {
+    "mean": 0.534,
+    "std": 0.05044601074416093,
+    "min": 0.467,
+    "max": 0.61,
+    "values": [
+      0.547,
+      0.491,
+      0.61,
+      0.467,
+      0.555
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_C_routing_collapse_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_C_skill_level_cost_effectiveness": {
+    "mean": 0.851,
+    "std": 0.04909989816690053,
+    "min": 0.791,
+    "max": 0.933,
+    "values": [
+      0.876,
+      0.827,
+      0.933,
+      0.828,
+      0.791
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_C_pareto_frontier_coverage": {
+    "mean": 0.028000000000000004,
+    "std": 0.009797958971132711,
+    "min": 0.02,
+    "max": 0.04,
+    "values": [
+      0.02,
+      0.04,
+      0.04,
+      0.02,
+      0.02
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_D_skill_refinement_rate": {
+    "mean": 0.0,
+    "std": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_D_skill_stability": {
+    "mean": 0.9818,
+    "std": 0.0024819347291981735,
+    "min": 0.978,
+    "max": 0.985,
+    "values": [
+      0.978,
+      0.981,
+      0.981,
+      0.985,
+      0.984
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_D_skill_coverage": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_D_skill_quality_gate_pass_rate": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_D_skill_velocity": {
+    "mean": 3.9,
+    "std": 0.867179335547152,
+    "min": 2.8,
+    "max": 5.2,
+    "values": [
+      2.8,
+      3.2,
+      4.5,
+      5.2,
+      3.8
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_E_pre_execution_skill_match": {
+    "mean": 0.8482,
+    "std": 0.018269099594670796,
+    "min": 0.826,
+    "max": 0.88,
+    "values": [
+      0.88,
+      0.852,
+      0.847,
+      0.826,
+      0.836
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_E_post_execution_skill_contribution": {
+    "mean": 0.7667999999999999,
+    "std": 0.010107423014794632,
+    "min": 0.754,
+    "max": 0.784,
+    "values": [
+      0.784,
+      0.769,
+      0.767,
+      0.754,
+      0.76
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_E_feedback_gap": {
+    "mean": 0.21939999999999998,
+    "std": 0.010442221985765292,
+    "min": 0.203,
+    "max": 0.233,
+    "values": [
+      0.203,
+      0.222,
+      0.213,
+      0.233,
+      0.226
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_E_skill_level_plan_f1": {
+    "mean": 0.47639999999999993,
+    "std": 0.003261901286060021,
+    "min": 0.473,
+    "max": 0.482,
+    "values": [
+      0.482,
+      0.474,
+      0.473,
+      0.475,
+      0.478
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_E_skill_level_exec_f1": {
+    "mean": 0.9118,
+    "std": 0.007467261881037794,
+    "min": 0.9,
+    "max": 0.923,
+    "values": [
+      0.923,
+      0.913,
+      0.914,
+      0.9,
+      0.909
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_F_skill_level_failure_attribution": {
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "values": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_F_skill_discovery_failure_rate": {
+    "mean": 0.21259999999999998,
+    "std": 0.05307579485980403,
+    "min": 0.164,
+    "max": 0.291,
+    "values": [
+      0.173,
+      0.164,
+      0.262,
+      0.291,
+      0.173
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_F_skill_model_mismatch_rate": {
+    "mean": 0.0558,
+    "std": 0.00581033561853358,
+    "min": 0.046,
+    "max": 0.063,
+    "values": [
+      0.046,
+      0.056,
+      0.054,
+      0.06,
+      0.063
+    ],
+    "n": 5
+  },
+  "sdr_web_arena_F_harness_skill_interaction_score": {
+    "mean": 36.16,
+    "std": 34.13963092946378,
+    "min": 4.6,
+    "max": 95.3,
+    "values": [
+      53.0,
+      19.6,
+      95.3,
+      4.6,
+      8.3
+    ],
+    "n": 5
+  }
+}
